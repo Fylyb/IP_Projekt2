@@ -1,38 +1,26 @@
 <?php
 session_start();
-require_once __DIR__ . "/db_conn.php";
-global $conn;
-
-if(isset($_POST['currentPassword']) && isset($_POST['newPassword'])) {
-    function validate($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    $currentPassword = validate($_POST['currentPassword']);
-    $newPassword = validate($_POST['newPassword']);
-
-    if(empty($currentPassword)){
-        header("Location: index.php?error=Current password is required");
-        exit();
-    }else if(empty($newPassword)) {
-        header("Location: index.php?error=New password is required");
-        exit();
-    }else{
-        //$sql = "SELECT * FROM employee WHERE login='$currentPassword' AND password='$newPassword'";
-        if($_SESSION['password'] === $currentPassword && $_SESSION['admin'] == 1){
-            $hashed_pass = password_hash($newPassword, PASSWORD_BCRYPT);
-            $sql = mysqli_query($conn, "UPDATE employee SET password='$hashed_pass' WHERE employee_id='{$_SESSION['employee_id']}'");
-            if($sql){
-                header("Location: home.php");
-                exit();
-        }
-        }else{
-            echo "blbe current heslo";
-        }
-    }
-}else{
-    header("Location: index.php?error");
-    exit();
+if ($_SESSION['name'] === null){
+header("Location: ../index.php");
 }
+?>
+<html>
+<head>
+    <title>PHP login system</title>
+</head>
+<body>
+<form action="changePassBack.php" method="post">
+    <h2>Change password</h2>
+    <?php if (isset($_GET['error'])) { ?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+    <?php } ?>
+    <label>Current password</label>
+    <input type="password" name="currentPassword" placeholder="Current password">
+
+    <label>New password</label>
+    <input type="password" name="newPassword" placeholder="New password">
+
+    <button type="submit">Change password</button>
+</form>
+</body>
+</html>
