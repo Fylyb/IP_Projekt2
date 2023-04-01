@@ -18,7 +18,7 @@ class IndexPage extends BasePage
 
 }
 ?>
-<html xmlns="">
+<html>
 <head>
     <title>Home</title>
 </head>
