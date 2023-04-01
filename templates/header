@@ -1,0 +1,9 @@
+<nav>
+    <h1>Prohlížeč databáze zaměstnanců</h1>
+    <ul>
+        <li><a href="/room/list.php">Místnosti</a></li>
+        <li><a href="/staff/list.php">Lidé</a></li>
+        <li><a href="/changePass.php">Změnit heslo</a></li>
+        <li><a href="/logout.php">Logout</a></li>
+    </ul>
+</nav>
