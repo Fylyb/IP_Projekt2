@@ -1,5 +1,5 @@
 # IP_Projekt2
-pro funkčnost je třeba doplnit obsah v config/config_local.json a public/db_conn.php
+pro funkčnost je třeba doplnit obsah v ```config/config_local.json``` a ```public/db_conn.php```
 
 config/config_local.json
 ```
