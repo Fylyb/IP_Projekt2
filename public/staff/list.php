@@ -11,7 +11,7 @@ class EmployeesPage extends CRUDPage
 
     public function __construct()
     {
-        $this->title = "Výpis místností";
+        $this->title = "Výpis zaměstnanců";
     }
 
     protected function prepare(): void
