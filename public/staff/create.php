@@ -24,7 +24,7 @@ class EmployeeCreatePage extends CRUDPage
         {
             //jdi dál
             $this->employee = new Staff();
-            $stmt=PDOProvider::get()->query("SELECT `name` roomName, room_id roomId FROM room JOIN `key` WHERE `key`.key_id = room_id");
+            $stmt=PDOProvider::get()->query("SELECT `name` roomName, room_id roomId, `no` FROM room JOIN `key` WHERE `key`.key_id = room_id");
             $this->keys=$stmt->fetchAll();
         }
 
